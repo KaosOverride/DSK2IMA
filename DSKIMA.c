@@ -260,7 +260,7 @@ char *errortext;
 t_drive DSK_image;
 ibm_drive IMA_image;
 
- printf("DSKIMG V0.0001PC - generic DSK to 720ks IMG compatible conversor\n");
+ printf("DSKIMG V0.0002 - generic DSK to 720ks IMG compatible conversor\n");
  printf("2018 by KaosOverride\n");
 
 
@@ -322,17 +322,16 @@ ibm_drive IMA_image;
             secID=dsk_whatformat(&DSK_image);
             switch(secID)
             {
- /*               case 0xC0:
+                case 0xC0:
                         dsk_initialtrack=0;
                         break;
                 case 0x40:
                         dsk_initialtrack=2;
 
                         break;
-*/
                 case 0:
                         dsk_initialtrack=0;
-//                        dsk_initialtrack=1;
+                       dsk_initialtrack=1;  //BLOCK THIS LINE TO CONVERT FAT12 .DSK IMAGES TO PC .IMA
                         break;
                 default:
                         errorcode=1;
